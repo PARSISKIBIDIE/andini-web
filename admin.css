@@ -1,0 +1,348 @@
+/* --- Admin/Messages Page Styles --- */
+
+.logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 50;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background: linear-gradient(to right, #f5576c, #f093fb);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(245, 87, 108, 0.3);
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(245, 87, 108, 0.4);
+}
+
+.messages-section {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px 60px 20px;
+}
+
+.messages-container {
+    width: 100%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #6a1b9a;
+    text-align: center;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #e91e63, #9c27b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.messages-subtitle {
+    text-align: center;
+    color: #7c5a99;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.messages-wrapper {
+    margin-top: 30px;
+}
+
+.messages-table-container {
+    overflow-x: auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.messages-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.messages-table thead {
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: white;
+}
+
+.messages-table th {
+    padding: 18px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.messages-table tbody tr {
+    border-bottom: 2px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.messages-table tbody tr:hover {
+    background: linear-gradient(to right, rgba(255, 154, 158, 0.1), rgba(250, 208, 196, 0.1));
+    transform: translateX(5px);
+}
+
+.messages-table td {
+    padding: 16px 18px;
+    color: #4a306d;
+    font-size: 0.95rem;
+    word-wrap: break-word;
+    max-width: 300px;
+}
+
+.messages-table td:nth-child(3) {
+    max-width: 400px;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.loading-row {
+    background: rgba(255, 235, 238, 0.5);
+}
+
+.loading-text {
+    text-align: center;
+    color: #a18cd1;
+    font-weight: 500;
+}
+
+/* Action Buttons */
+.btn-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-view, .btn-delete {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-view {
+    background: linear-gradient(to right, #84fab0, #8fd3f4);
+    color: white;
+    box-shadow: 0 4px 10px rgba(132, 250, 176, 0.3);
+}
+
+.btn-view:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(132, 250, 176, 0.4);
+}
+
+.btn-delete {
+    background: linear-gradient(to right, #f093fb, #f5576c);
+    color: white;
+    box-shadow: 0 4px 10px rgba(245, 87, 108, 0.3);
+}
+
+.btn-delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(245, 87, 108, 0.4);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #a18cd1;
+    font-size: 2rem;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Modal untuk detail pesan */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background: white;
+    margin: auto;
+    padding: 40px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    color: #a18cd1;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #6a1b9a;
+}
+
+.modal-header {
+    font-size: 1.5rem;
+    color: #6a1b9a;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-body {
+    margin: 20px 0;
+}
+
+.modal-field {
+    margin-bottom: 20px;
+}
+
+.modal-label {
+    display: block;
+    font-weight: 600;
+    color: #a18cd1;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.modal-value {
+    color: #4a306d;
+    word-wrap: break-word;
+    line-height: 1.6;
+    background: rgba(255, 235, 238, 0.3);
+    padding: 12px;
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .messages-container {
+        padding: 30px 20px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .messages-table td {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+    }
+
+    .messages-table th {
+        padding: 12px 10px;
+        font-size: 0.8rem;
+    }
+
+    .messages-table td:nth-child(3) {
+        max-width: 200px;
+    }
+
+    .btn-view, .btn-delete {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .messages-section {
+        padding: 100px 10px 40px 10px;
+    }
+
+    .messages-container {
+        padding: 20px 15px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .floral-deco {
+        font-size: 1.2rem;
+    }
+
+    .messages-table {
+        font-size: 0.8rem;
+    }
+
+    .messages-table th,
+    .messages-table td {
+        padding: 8px 5px;
+    }
+
+    .btn-view, .btn-delete {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+}

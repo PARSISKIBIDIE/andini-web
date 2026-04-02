@@ -1,0 +1,573 @@
+/* --- Reset & Root --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    --text-main: #4a306d;
+    --pink-highlight: #e91e63;
+    --white-soft: rgba(255, 255, 255, 0.8);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- Header & Nav --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: #6a1b9a;
+    text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+}
+
+nav ul { display: flex; gap: 20px; list-style: none; }
+
+.nav-item {
+    padding: 8px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.item-pink { background: linear-gradient(to right, #ff9a9e, #fad0c4); }
+.item-purple { background: linear-gradient(to right, #a18cd1, #fbc2eb); }
+.item-blue { background: linear-gradient(to right, #84fab0, #8fd3f4); }
+
+.nav-item:hover { transform: translateY(-3px) scale(1.05); }
+
+/* --- Hero Section (DIRETAK KAN) --- */
+.hero {
+    min-height: 80vh; /* Dikurangi dari 100vh agar tidak terlalu jauh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 100px 20px 40px 20px; /* Padding bawah diperkecil */
+}
+
+.cloud-border {
+    position: absolute;
+    top: 0; width: 100%; height: 100px;
+    background: white; border-radius: 0 0 50% 50%;
+    filter: blur(20px); opacity: 0.3;
+}
+
+.hero-content { 
+    z-index: 2; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Spasi antar elemen teks */
+}
+
+.floral-deco { font-size: 1.5rem; color: #d81b60; }
+.hero h1 { font-size: 3.5rem; line-height: 1.2; margin: 0; }
+
+.highlight { 
+    background: linear-gradient(to right, #e91e63, #9c27b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-magical {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 15px 45px;
+    background: white;
+    color: var(--pink-highlight);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.btn-magical:hover { 
+    transform: scale(1.1); 
+    background: var(--pink-highlight); 
+    color: white; 
+}
+
+/* --- About Section (DIRETAK KAN) --- */
+.about-section {
+    padding: 20px 10% 80px 10%; /* Padding atas dikecilkan drastis agar rapat */
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container { 
+    text-align: center; 
+    max-width: 800px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.section-title { 
+    font-size: 3rem; 
+    font-family: 'Dancing Script', cursive; 
+    margin-bottom: 10px; 
+    color: #6a1b9a;
+}
+
+/* --- Polaroid Card & Tape --- */
+.polaroid-card {
+    background: white;
+    padding: 20px 20px 40px 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transform: rotate(-3deg);
+    transition: 0.5s;
+    display: inline-block;
+    position: relative;
+    margin: 20px 0;
+}
+
+.polaroid-card:hover { transform: rotate(0deg) scale(1.05); }
+
+.tape {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.photo-frame { width: 280px; height: 350px; overflow: hidden; border: 1px solid #f0f0f0; }
+.profile-img { width: 100%; height: 100%; object-fit: cover; }
+.sparkle-overlay { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; }
+
+.card-caption { margin-top: 15px; font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #e91e63; }
+
+.about-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* --- Balloon & Cat --- */
+.cute-balloon { 
+    font-size: 5rem; 
+    position: absolute; 
+    bottom: 10%; 
+    right: 10%; 
+    animation: float 4s infinite ease-in-out; 
+}
+
+@keyframes float { 
+    0%, 100% { transform: translateY(0) rotate(5deg); } 
+    50% { transform: translateY(-25px) rotate(-5deg); } 
+}
+
+.cursor-cat { position: fixed; font-size: 2.5rem; pointer-events: none; z-index: 9999; opacity: 0; }
+
+/* --- SweetAlert & Lightbox Overlay --- */
+.swal2-popup { border-radius: 30px !important; }
+.swal2-title { font-family: 'Dancing Script', cursive !important; color: #6a1b9a !important; }
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(74, 48, 109, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: zoom-out;
+    backdrop-filter: blur(8px);
+}
+
+.lightbox-content {
+    max-width: 80%;
+    max-height: 80vh;
+    border: 10px solid white;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(233, 30, 99, 0.3);
+    transform: scale(0.8);
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- Gallery Styles --- */
+.gallery-page { padding-top: 100px; background: #fffafb; }
+.gallery-wrapper { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.gallery-header-text h1 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: #ff85a2; text-shadow: 2px 2px 0px #ffe4eb; text-align: center; }
+.gallery-header-text p { text-align: center; margin-bottom: 30px; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.cute-card {
+    position: relative;
+    padding-top: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: floating 3s ease-in-out infinite;
+    cursor: url('https://cur.cursors-4u.net/symbols/sym-1/sym49.cur'), pointer !important;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+.washi-tape {
+    position: absolute;
+    top: 0; left: 50%; transform: translateX(-50%) rotate(-3deg);
+    width: 100px; height: 30px; background: rgba(255, 182, 193, 0.6);
+    backdrop-filter: blur(2px); z-index: 5; box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.washi-tape.blue { background: rgba(173, 216, 230, 0.6); }
+.washi-tape.purple { background: rgba(221, 160, 221, 0.6); }
+
+.card-inner {
+    background: white; padding: 12px; padding-bottom: 20px; border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(255, 133, 162, 0.15); border: 1px solid #ffe4eb;
+}
+.card-inner img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; display: block; }
+.card-tag { margin-top: 15px; font-family: 'Dancing Script', cursive; font-size: 1.3rem; color: #ff85a2; text-align: center; }
+
+.cute-card:hover .card-inner { box-shadow: 0 20px 40px rgba(255, 133, 162, 0.3); border-color: #ff85a2; }
+
+@media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: 1fr; padding: 20px; }
+    .hero h1 { font-size: 2.5rem; }
+}
+
+/* --- 1. Efek Footer Lucu --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    margin-top: 50px;
+    border-top: 2px dashed #ffb6c1;
+}
+
+footer p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #8e24aa;
+}
+
+/* --- 2. Animasi Halus untuk Dekorasi --- */
+.floral-deco {
+    animation: sway 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg) scale(1); }
+    50% { transform: rotate(5deg) scale(1.1); }
+}
+
+/* --- 3. Gaya Bintang (Sparkles) --- */
+.particle {
+    position: fixed;
+    top: 0; left: 0;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 10px white, 0 0 20px #ff85a2;
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; transform: scale(0.2) translateY(20px); }
+}
+
+/* --- Contact Section Styles --- */
+.contact-section {
+    padding: 60px 10%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-layout {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.letter-box {
+    background: #fff;
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 0px #ffb6c1;
+    border: 2px solid #ffb6c1;
+    max-width: 400px;
+    width: 100%;
+    transform: rotate(-1deg);
+    transition: 0.3s;
+}
+
+.letter-box:hover { transform: rotate(0deg) scale(1.02); }
+
+.letter-paper {
+    border: 1px solid #f0f0f0;
+    padding: 25px;
+    background-image: linear-gradient(#e8e8e8 1px, transparent 1px);
+    background-size: 100% 28px;
+}
+
+.letter-paper input, .letter-paper textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-main);
+    outline: none;
+    margin-bottom: 8px;
+}
+
+.btn-send {
+    background: var(--pink-highlight);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-send:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3); }
+
+/* Social Bubbles */
+.social-bubbles { display: flex; gap: 15px; }
+
+.bubble {
+    width: 65px; height: 65px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    text-decoration: none; color: white; font-weight: bold;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    animation: floatBubble 3s ease-in-out infinite;
+}
+
+.ig { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+.wa { background: #25d366; animation-delay: 0.5s; }
+.mail { background: #8e24aa; animation-delay: 1s; }
+
+@keyframes floatBubble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* --- Login Modal Styles --- */
+.item-gold {
+    background: linear-gradient(to right, #ffd700, #ffed4e) !important;
+    color: #6a1b9a !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-weight: 700 !important;
+}
+
+.item-gold:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4) !important;
+}
+
+.login-modal {
+    display: none;
+    position: fixed;
+    z-index: 10001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.login-modal.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.login-modal-content {
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.login-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #a18cd1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-modal-close:hover {
+    color: #6a1b9a;
+    transform: scale(1.2);
+}
+
+.login-form-wrapper {
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-emoji {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.login-header h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #6a1b9a;
+    margin: 0;
+}
+
+.login-group {
+    margin-bottom: 20px;
+}
+
+.login-input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #e91e63;
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.2);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #e91e63, #9c27b0);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+.login-hint {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #e0e0e0;
+    color: #a18cd1;
+    font-size: 0.9rem;
+}
+
+.login-hint p {
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .login-modal-content {
+        padding: 30px;
+        width: 95%;
+    }
+
+    .login-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .login-emoji {
+        font-size: 2.5rem;
+    }
+}
